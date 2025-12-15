@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Ensure Tailwind padding classes work on v-card */
+v-card {
+  @apply p-0; /* Reset default padding */
+}
+
+/* Let Tailwind padding classes override */
+v-card.p-1,
+.v-card.p-1 {
+  padding: 0.25rem !important;
+}
+
+v-card.p-2,
+.v-card.p-2 {
+  padding: 0.5rem !important;
+}
+
+v-card.p-3,
+.v-card.p-3 {
+  padding: 0.75rem !important;
+}
+
+v-card.p-4,
+.v-card.p-4 {
+  padding: 1rem !important;
+}
+
+v-card.p-5,
+.v-card.p-5 {
+  padding: 1.25rem !important;
+}
+
+v-card.p-6,
+.v-card.p-6 {
+  padding: 1.5rem !important;
+}
+
+v-card.p-8,
+.v-card.p-8 {
+  padding: 2rem !important;
+}
+
+/* Ensure v-card-text padding works too */
+v-card-text.p-1,
+.v-card-text.p-1 {
+  padding: 0.25rem !important;
+}
+
+v-card-text.p-2,
+.v-card-text.p-2 {
+  padding: 0.5rem !important;
+}
+
+v-card-text.p-3,
+.v-card-text.p-3 {
+  padding: 0.75rem !important;
+}
+
+v-card-text.p-4,
+.v-card-text.p-4 {
+  padding: 1rem !important;
+}
+
+v-card-text.p-5,
+.v-card-text.p-5 {
+  padding: 1.25rem !important;
+}
+
+v-card-text.p-6,
+.v-card-text.p-6 {
+  padding: 1.5rem !important;
+}
+
+v-card-text.p-8,
+.v-card-text.p-8 {
+  padding: 2rem !important;
+}
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  /* 注释全局flex布局以避免覆盖Tailwind布局类 */
+  /* display: flex;
+  place-items: center; */
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+/* 注释全局h1标签样式以避免覆盖Tailwind类 */
+/* h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+} */
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.card {
+  padding: 2em;
+}
+
+/* 注释#app样式以避免覆盖Tailwind容器类 */
+/* #app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+} */
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  /* 移除全局a标签样式覆盖 */
+  /* a {
+     color: #1a1a1a;
+     text-decoration: none;
+  }
+  
+   a:hover {
+     text-decoration: underline;
+  } */
+  
+  /* 移除全局标题样式覆盖 */
+  /* h1, h2, h3, h4, h5, h6 {
+     font-weight: 600;
+     margin-bottom: 0.5rem;
+  } */
+  button {
+    background-color: #f9f9f9;
+  }
+}

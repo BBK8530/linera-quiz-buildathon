@@ -1,10 +1,31 @@
+version: "3.8"
+
 services:
-  app:
+  linera-quiz-app:
     build: .
+    container_name: linera-quiz-app
     ports:
-    - "5173:5173" # Web app
-    - "8080:8080" # faucet
-    - "9001:9001" # shard proxy
-    - "13001:13001" # shard
+      - "5173:5173" # Web app (Vite dev server)
+      - "8080:8080" #  service
+      - "9001:9001" # Shard proxy
+      - "13001:13001" # Shard service
     volumes:
-    - .:/build
+      - .:/build:cached
+    environment:
+      - NODE_ENV=development
+      - LINERA_FAUCET_URL=http://localhost:8080
+      - VITE_APP_LINERA_URL=http://localhost:5173
+    restart: unless-stopped
+    tty: true
+    stdin_open: true
+    healthcheck:
+      test: ["CMD", "curl", "-s", "http://localhost:5173"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
