@@ -34,7 +34,7 @@ echo "Publishing modules..."
 APP_ID=$(linera publish-and-create target/wasm32-unknown-unknown/release/quiz_{contract,service}.wasm)
 
 # Save CHAIN_ID and APP_ID to .env file for frontend use
-ENV_FILE="/build/front-end.env"
+ENV_FILE="/build/front-end/.env"
 echo "VITE_CHAIN_ID=$CHAIN" > "$ENV_FILE"
 echo "VITE_APP_ID=$APP_ID" >> "$ENV_FILE"
 echo "VITE_PORT=8080" >> "$ENV_FILE"
