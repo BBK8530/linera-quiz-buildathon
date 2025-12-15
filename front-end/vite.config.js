@@ -10,6 +10,19 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  server: {
+    host: "0.0.0.0", // 允许远程访问
+    port: 3000,
+    strictPort: true, // 端口被占用时直接失败
+    // 代理配置（如果后端也在本地）
+    proxy: {
+      "/chains": {
+        target: "http://localhost:8080",
+        changeOrigin: true,
+        secure: false,
+      },
+    },
+  },
   build: {
     rollupOptions: {
       input: {
