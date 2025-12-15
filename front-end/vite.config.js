@@ -12,7 +12,7 @@ export default defineConfig({
   },
   server: {
     host: "0.0.0.0", // 允许远程访问
-    port: 3000,
+    port: 5173,
     strictPort: true, // 端口被占用时直接失败
     // 代理配置（如果后端也在本地）
     proxy: {

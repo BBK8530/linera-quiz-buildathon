@@ -3,16 +3,14 @@ services:
     build: .
     container_name: linera-quiz-app
     ports:
-      - "5173:5173" # Web app (Vite dev server)
-      - "8080:8080" #  service
-      - "9001:9001" # Shard proxy
-      - "13001:13001" # Shard service
+      - "0.0.0.0:5173:5173" # Web app (Vite dev server) - 关键修改
+      - "0.0.0.0:8080:8080" # Linera service
+      - "0.0.0.0:9001:9001" # Shard proxy
+      - "0.0.0.0:13001:13001" # Shard service
     volumes:
       - .:/build:cached
     environment:
       - NODE_ENV=development
-      - LINERA_FAUCET_URL=http://localhost:8080
-      - VITE_APP_LINERA_URL=http://localhost:5173
     restart: unless-stopped
     tty: true
     stdin_open: true
